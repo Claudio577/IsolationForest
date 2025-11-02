@@ -21,8 +21,10 @@ O objetivo é classificar transações como **Fraudulentas (1)** ou **Normais (0
 # --- CARREGAMENTO DE DADOS ---
 @st.cache_data
 def carregar_dados():
-    df = pd.read_csv("data/creditcard.csv")
+    url = "https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv"
+    df = pd.read_csv(url)
     return df
+
 
 df = carregar_dados()
 st.success(f"✅ Dataset carregado com {df.shape[0]:,} transações e {df.shape[1]} variáveis.")
